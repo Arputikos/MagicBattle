@@ -47,6 +47,7 @@ public class SpawnManager : MonoBehaviour
             pos.x = Random.Range(-terrainSize.x / 2, terrainSize.x / 2);
             pos.z = Random.Range(-terrainSize.z / 2, terrainSize.z / 2);
         } while ((pos - player.transform.position).magnitude < spawnSafeDistance);
+        pos.y = terrain.transform.position.y;
         GameObject newZombie = Instantiate(zombiePrefab);
 
         newZombie.transform.position = pos;
