@@ -29,9 +29,46 @@ public class GameController : MonoBehaviour {
         //        Debug.Log("KeyCode down: " + kcode);
         //}
 
-        if(Input.GetKeyDown(KeyCode.JoystickButton0))
+       // if (Input.GetKeyDown(KeyCode.JoystickButton10))
+       // {
+       //     player.GetComponent<PlayerController>().Lighting(false, true);
+       // }
+       //else if (Input.GetKeyUp(KeyCode.JoystickButton10))
+       // {
+       //     player.GetComponent<PlayerController>().Lighting(false, false);
+       // }
+        if (Input.GetAxis("Oculus_GearVR_LThumbstickY") > 0)
         {
-            player.GetComponent<PlayerController>().Shoot();
+            player.GetComponent<PlayerController>().Lighting(true, true);
+            //player.GetComponent<PlayerController>().Lighting(true, true);
+        }
+        else
+            player.GetComponent<PlayerController>().Lighting(true, false);
+
+        if (Input.GetAxis("Oculus_GearVR_RThumbstickY") > 0)
+        {
+            player.GetComponent<PlayerController>().Lighting(false, true);
+            //player.GetComponent<PlayerController>().Lighting(true, true);
+        }
+        else
+            player.GetComponent<PlayerController>().Lighting(false, false);
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            player.GetComponent<PlayerController>().Shoot(0);
+        }
+        if (Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            player.GetComponent<PlayerController>().Shoot(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            player.GetComponent<PlayerController>().Shoot(2);
+        }
+        if (Input.GetKeyDown(KeyCode.JoystickButton3))
+        {
+            player.GetComponent<PlayerController>().Shoot(3);
         }
     }
 }

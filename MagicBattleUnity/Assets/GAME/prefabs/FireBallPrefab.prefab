@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038493323108000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.147709, y: -0.661, z: -11.183147}
+  m_LocalPosition: {x: 19.499565, y: -4.02, z: -22.235802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4624484891634796}
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1918059771028164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.34999996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 4029262070912012}
   m_RootOrder: 1
@@ -287,7 +287,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -349,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 25
   TIME_TO_DESTROY: 5
+  explosionPrefab: {fileID: 1399446487277544, guid: 80fdd290a695db7419e321be0525f922,
+    type: 2}
 --- !u!135 &135559424646784246
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -420,7 +422,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 2131502732
+  randomSeed: -381052229
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3550,7 +3552,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -123674660
+  randomSeed: 1146954703
   InitialModule:
     serializedVersion: 3
     enabled: 1

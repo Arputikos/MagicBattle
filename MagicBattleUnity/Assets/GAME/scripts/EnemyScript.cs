@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour {
     PlayerController player;
     GameObject playerHead;
     public float speed;
+    public AudioClip clipHit;
 
     public float minDist = 0.1f;
     public float DEAD_VISIBLE = 3.0f;
@@ -69,7 +70,7 @@ public class EnemyScript : MonoBehaviour {
 
     }
 
-    private void Die()
+    public void Die()
     {
         if (!lives)
             return;
@@ -90,11 +91,22 @@ public class EnemyScript : MonoBehaviour {
                 Die();
             other.gameObject.GetComponent<FireballScript>().Collided();
         }
+        if (other.CompareTag("iceball"))
+        {
+            if (other.gameObject.GetComponent<IceballScript>().IsAlive())//fireball not used
+                Die();
+            other.gameObject.GetComponent<IceballScript>().Collided();
+        }
+        //if (other.CompareTag("boltendl") || other.CompareTag("boltendr"))
+        //{
+        //   Die();
+        //}
     }
 
     public void TakeDamage()//called by animation frame
     {
         player.Damage();
+        this.GetComponentInChildren<AudioSource>().PlayOneShot(clipHit);
     }
 
     //private void OnCollisionEnter(Collision collision)
