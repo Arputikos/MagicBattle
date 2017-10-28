@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -11,22 +12,37 @@ public class PlayerController : MonoBehaviour {
     public GameObject lightingL, lightingR;
 
     public int MAX_LIVES;
-    public float MAX_LIGHTING_DIST;
+    //public float MAX_LIGHTING_DIST;
+    public float RESTART_GAME_AFTER_DEATH;
     int lives;
-    public GameObject HUD,bloodSplatter;
+    public GameObject HUD,bloodSplatter,gover;
     float bloodSplatterAlpha = 0;
+
+    float timerAfterDeath;
 
     GameObject Head;
 	// Use this for initialization
 	void Start () {
         Head = GameObject.FindGameObjectWithTag("Head");
         lives = MAX_LIVES;
+
+        gover.SetActive(false);
+
+        timerAfterDeath = 0;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (lives <= 0)
+        {
+            timerAfterDeath += Time.deltaTime;
+
+            if(timerAfterDeath > RESTART_GAME_AFTER_DEATH)//TEMP
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             return;
+        }
 
         foreach (var x in GameObject.FindGameObjectsWithTag("boltstartr"))
         {
@@ -157,12 +173,15 @@ public class PlayerController : MonoBehaviour {
         //color.a = bloodSplatterAlpha;
         Debug.Log(color);
         bloodSplatter.GetComponent<Image>().color = color;
+        
 
         if (lives <= 0)
         {
             Die();
+            gover.SetActive(true);
             Lighting(true, false);
             Lighting(false, false);
+            timerAfterDeath = 0;
         }
     }
 
