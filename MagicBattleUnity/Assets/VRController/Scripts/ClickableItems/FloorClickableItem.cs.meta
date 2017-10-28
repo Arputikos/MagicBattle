@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 48494cef9fdc1344cadca84388bd7c8f
+timeCreated: 1504696737
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ControllerTeleport: {instanceID: 0}
+  - MarkerScript: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
